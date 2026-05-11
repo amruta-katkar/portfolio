@@ -1,28 +1,170 @@
-import Link from 'next/link';
+"use client";
 
-const Navbar = () => {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Skills", href: "/skills" },
+  { name: "About", href: "/about" },
+  { name: "Experience", href: "/experience" },
+  { name: "Contact", href: "/contact" },
+];
+
+export default function Navbar() {
+  const pathname = usePathname();
+
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+
+    setTheme(savedTheme);
+
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    setTheme(newTheme);
+
+    localStorage.setItem("theme", newTheme);
+
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-      <div className="bg-[#0B0F19]/60 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full flex justify-between items-center shadow-2xl">
-        <div className="text-white font-bold text-xl tracking-tight">
-          Abc<span className="text-indigo-500">.</span>
-        </div>
-        
-        <div className="hidden md:flex gap-8 text-gray-400 text-sm font-medium">
-          <Link href="#home" className="hover:text-white transition-colors">Home</Link>
-          <Link href="#projects" className="hover:text-white transition-colors">Projects</Link>
-          <Link href="#skills" className="hover:text-white transition-colors">Skills</Link>
-          <Link href="#about" className="hover:text-white transition-colors">About</Link>
-          <Link href="#contact" className="hover:text-white transition-colors">Contact</Link>
-        </div>
+    <header className="w-full flex justify-center px-4 pt-6">
+      <nav
+        className="
+          w-full max-w-6xl
+          rounded-2xl
+          border border-blue-500/20
+          bg-white/80 dark:bg-[#060b1a]/80
+          backdrop-blur-xl
+          shadow-[0_0_30px_rgba(37,99,235,0.15)]
+          transition-all duration-300
+        "
+      >
+        <div className="flex items-center justify-between px-6 py-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div
+              className="
+                flex h-11 w-11 items-center justify-center
+                rounded-xl
+                border border-blue-500/40
+                bg-gray-200 dark:bg-[#0d1328]
+                text-black dark:text-white
+                font-bold
+                shadow-[0_0_12px_rgba(59,130,246,0.45)]
+                transition-all duration-300
+              "
+            >
+              AK
+            </div>
 
-        <button className="p-2 bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-all">
-          {/* Simple Toggle Icon Placeholder */}
-          <div className="w-5 h-5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>
-        </button>
-      </div>
-    </nav>
+            <div>
+              <h1 className="text-black dark:text-white font-semibold text-lg">
+                Amruta Katkar
+              </h1>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="hidden md:flex items-center gap-10">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="relative text-sm font-medium transition-all duration-300"
+                >
+                  <span
+                    className={
+                      isActive
+                        ? "text-blue-500 dark:text-blue-400"
+                        : `
+                          text-gray-700 hover:text-black
+                          dark:text-gray-300 dark:hover:text-white
+                        `
+                    }
+                  >
+                    {item.name}
+                  </span>
+
+                  {/* Active underline */}
+                  <span
+                    className={`
+                      absolute left-1/2 -bottom-3 h-[3px]
+                      -translate-x-1/2 rounded-full
+                      bg-blue-500
+                      transition-all duration-300
+                      ${
+                        isActive
+                          ? "w-8 opacity-100"
+                          : "w-0 opacity-0"
+                      }
+                    `}
+                  />
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="
+              relative flex h-10 w-20 items-center
+              rounded-full
+              border border-blue-500/30
+              bg-gray-200 dark:bg-[#0d1328]
+              px-1
+              transition-all duration-300
+            "
+          >
+            {/* Sliding Circle */}
+            <div
+              className={`
+                absolute flex h-8 w-8 items-center justify-center
+                rounded-full
+                bg-blue-500
+                text-white
+                shadow-md
+                transition-all duration-300
+                ${theme === "dark" ? "translate-x-10" : "translate-x-0"}
+              `}
+            >
+              {theme === "dark" ? (
+                <Moon size={16} />
+              ) : (
+                <Sun size={16} />
+              )}
+            </div>
+
+            {/* Icons */}
+            <div className="flex w-full justify-between px-2 text-gray-600 dark:text-gray-400">
+              <Sun size={16} />
+              <Moon size={16} />
+            </div>
+          </button>
+        </div>
+      </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}
