@@ -46,13 +46,13 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full flex justify-center px-4 pt-6">
+    <header className="sticky top-0 z-50 w-full flex justify-center px-4 pt-4">
       <nav
         className="
           w-full max-w-6xl
           rounded-2xl
           border border-blue-500/20
-          bg-white/80 dark:bg-[#060b1a]/80
+          bg-white/70 dark:bg-[#060b1a]/70
           backdrop-blur-xl
           shadow-[0_0_30px_rgba(37,99,235,0.15)]
           transition-all duration-300
