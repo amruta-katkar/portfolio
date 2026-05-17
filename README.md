@@ -1,7 +1,5 @@
 # 🌐 Personal Portfolio Website
 
-![Portfolio Banner](./public/banner.png)
-
 A modern and responsive developer portfolio built using **Next.js**, **React.js**, and **Tailwind CSS**.
 
 ---
@@ -10,7 +8,7 @@ A modern and responsive developer portfolio built using **Next.js**, **React.js*
 
 ## Page
 
-![Home Screenshot](./public/screenshots/home.png)
+![Home Screenshot](./public/home.png)
 
 ---
 
