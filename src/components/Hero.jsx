@@ -107,45 +107,52 @@ export default function Hero() {
           </p>
 
           {/* BUTTONS */}
-          <div className="flex flex-wrap gap-4 mt-8">
-            {/* VIEW WORK */}
-            <Link
-              href="#projects"
-              className="
-              group inline-flex items-center gap-2
-              px-6 py-3 rounded-xl
-              bg-blue-600 hover:bg-blue-700
-              text-white font-medium
-              transition-all duration-300
-            "
-            >
-              View My Work
+          <div className="flex flex-wrap items-center gap-4 mt-8">
 
-              <ArrowRight
-                size={18}
-                className="group-hover:translate-x-1 transition"
-              />
-            </Link>
+          {/* VIEW WORK */}
+          <Link
+            href="#projects"
+            className="
+            group relative inline-flex items-center justify-center gap-3
+            h-12 px-6
+            overflow-hidden rounded-xl
+            bg-gradient-to-r from-blue-600 via-blue-500 to-violet-600
+            text-sm font-medium text-white
+            shadow-xl shadow-blue-500/20
+            transition-all duration-300
+            hover:scale-[1.02]
+            hover:shadow-blue-500/40
+          "
+          >
+            View My Work
 
-            {/* RESUME BUTTON */}
-            <a
-              href="/resume.pdf"
-              download
-              className="
-              inline-flex items-center gap-2
-              px-6 py-3 rounded-xl
-              border border-gray-300 dark:border-gray-700
-              bg-white dark:bg-[#0B1220]
-              hover:bg-gray-100 dark:hover:bg-[#10182B]
-              text-gray-900 dark:text-white
-              font-medium
-              transition-all duration-300
-            "
-            >
-              Download Resume
-              <Download size={18} />
-            </a>
-          </div>
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition"
+            />
+          </Link>
+
+          {/* RESUME BUTTON */}
+          <a
+            href="/resume.pdf"
+            download
+            className="
+            inline-flex items-center justify-center gap-2
+            h-12 px-6
+            rounded-xl
+            border border-gray-300 dark:border-gray-700
+            bg-white dark:bg-[#0B1220]
+            hover:bg-gray-100 dark:hover:bg-[#10182B]
+            text-gray-900 dark:text-white
+            text-sm font-medium
+            transition-all duration-300
+          "
+          >
+            Download Resume
+            <Download size={18} />
+          </a>
+
+        </div>
 
           {/* SOCIAL ICONS */}
           <div className="flex items-center gap-4 mt-8">
@@ -282,7 +289,7 @@ export default function Hero() {
             "
             >
               <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                3rd Year CSE Student
+                Final Year CSE Student
               </p>
 
               <p className="text-xs mt-1 text-gray-500 dark:text-gray-400">
