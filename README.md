@@ -113,7 +113,3 @@ If you like this project:
 -  Share with others
 
 ---
-
-# License
-
-This project is licensed under the MIT License.
