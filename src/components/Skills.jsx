@@ -12,17 +12,12 @@ import {
 } from "react-icons/fa";
 
 import {
-  SiTailwindcss,
   SiFastapi,
   SiFlask,
   SiPandas,
   SiNumpy,
   SiScikitlearn,
 } from "react-icons/si";
-
-import { VscVscode } from "react-icons/vsc";
-
-import { Terminal } from "lucide-react";
 
 const skills = [
   {
@@ -75,12 +70,7 @@ const skills = [
     icon: SiScikitlearn,
     color: "text-orange-400",
   },
-  {
-    name: "OpenCV",
-    icon: Terminal,
-    color: "text-rose-500",
-  },
-  {
+    {
     name: "Git",
     icon: FaGitAlt,
     color: "text-orange-600",
@@ -89,16 +79,6 @@ const skills = [
     name: "GitHub",
     icon: FaGithub,
     color: "text-black dark:text-white",
-  },
-  {
-    name: "VS Code",
-    icon: VscVscode,
-    color: "text-blue-500",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: SiTailwindcss,
-    color: "text-cyan-400",
   },
 ];
 
