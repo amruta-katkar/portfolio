@@ -8,7 +8,7 @@ A modern and responsive developer portfolio built using **Next.js**, **React.js*
 
 ## Page
 
-![Home Screenshot](./public/home.png)
+![Home Screenshot](./public/portfolio2.png)
 
 ---
 
